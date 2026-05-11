@@ -1,0 +1,29 @@
+{
+    "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node",
+    "features":{
+        "ghcr.io/devcontainers/features/common-utils": {
+            "configureZshAsDefaultShell": true
+        },
+        "ghcr.io/devcontainers/features/docker-in-docker": {
+            "moby": false
+        }
+    },
+    "workspaceMount": "source=${localWorkspaceFolder},target=/app,type=bind,consistency=cached",
+    "workspaceFolder": "/app",
+    "forwardPorts": [8088, 8080, 3306],
+    "portsAttributes": {
+        "8088": {
+            "label": "Processwire App",
+            "onAutoForward": "notify"
+        },
+        "8080":{
+            "label": "PHPMyADMIN",
+            "onAutoForward": "silent"
+        },
+        "3306": {
+            "label": "MySQL Database",
+            "onAutoForward": "silent"
+        }
+    },
+    "postCreateCommand": "chmod +x download-processwire.sh && ./download-processwire.sh && docker compose up -d"
+}
