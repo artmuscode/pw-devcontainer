@@ -1,0 +1,29 @@
+data/
+# ProcessWire specific files and directories to ignore
+app/site/assets/cache/*
+app/site/assets/logs/*
+app/site/assets/sessions/*
+app/site/config.php
+app/site/modules/*
+!/app/site/modules/.gitkeep
+
+# Core ProcessWire folder (if managed via Composer or separate workflow)
+app/wire/
+
+# Development/environment specific files
+app/config-dev.php
+app/.env
+
+# Composer and Node dependencies
+app/vendor/
+app/node_modules/
+
+# Common temporary files and backups
+.*.backup
+.*.bak
+.*.old
+.*.tmp
+.*.temp
+*.sql
+*.zip
+.DS_Store
